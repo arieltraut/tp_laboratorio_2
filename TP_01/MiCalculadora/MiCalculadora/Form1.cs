@@ -18,6 +18,9 @@ namespace MiCalculadora
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Evento que llama al metodo operar y muestra el resultado en lblResultado.
+        /// </summary>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             int indice = cmbOperador.SelectedIndex;
@@ -33,7 +36,10 @@ namespace MiCalculadora
                     lblResultado.Text = (this.Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Items[indice].ToString())).ToString("0.##");
             }
         }
-            
+
+        /// <summary>
+        /// Evento que vacia ambos TextBox, operador y resultado.
+        /// </summary>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtNumero1.Text = "";
@@ -42,33 +48,51 @@ namespace MiCalculadora
             lblResultado.Text = "";
         }
 
+        /// <summary>
+        /// Evento que cierra el formulario.
+        /// </summary>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Evento que convierte el resultado decimal a numero binario.
+        /// </summary>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             if(lblResultado.Text != "")
                 lblResultado.Text = Numero.DecimalBinario(lblResultado.Text);        
         }
 
+        /// <summary>
+        /// Evento que convierte el resultado de binario a numero decimal.
+        /// </summary>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             if (lblResultado.Text != "")            
                 lblResultado.Text = Numero.BinarioDecimal(lblResultado.Text);        
         }
 
+        /// <summary>
+        /// Evento que inicializa el formulario y asigna valor vacio al label resultado.
+        /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
             lblResultado.Text = "";
         }
 
+        /// <summary>
+        /// Evento que impide input del teclado en el ComboBox.
+        /// </summary>
         private void cmbOperador_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Evento que impide input de la tecla enter en TextBox1.
+        /// </summary>
         private void txtNumero1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -77,6 +101,9 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Evento que impide input de la tecla enter en TextBox2.
+        /// </summary>
         private void txtNumero2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
