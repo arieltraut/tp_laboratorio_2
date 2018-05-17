@@ -84,7 +84,7 @@ namespace Entidades_2017
         /// <returns>Instancia de Changuito</returns>
         public static Changuito operator +(Changuito changuito, Producto p)
         {
-            if (changuito._espacioDisponible >= changuito._productos.Count()+1)
+            if (changuito._espacioDisponible > changuito._productos.Count())
             {
                 foreach (Producto v in changuito._productos)
                 {
