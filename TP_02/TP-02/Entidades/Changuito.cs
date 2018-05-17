@@ -9,7 +9,7 @@ namespace Entidades_2017
     /// <summary>
     /// No podrá tener clases heredadas.
     /// </summary>
-    public class Changuito
+    public sealed class Changuito
     {
         List<Producto> _productos;
         int _espacioDisponible;
